@@ -1,0 +1,25 @@
+{
+    "name": "vcmb-spice-grammer-syntax-highlight",
+    "displayName": "VCMB spice grammer syntax highlight",
+    "description": "VCMB spice",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.70.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "VCMBSpice",
+            "aliases": ["spice", "VCMBSpice"],
+            "extensions": [".net .cir .lib"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "VCMBSpice",
+            "scopeName": "source.vcmb",
+            "path": "./syntaxes/VCMBSpice.tmLanguage.json"
+        }]
+    }
+}
