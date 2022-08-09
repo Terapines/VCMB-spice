@@ -13,7 +13,7 @@
         "languages": [{
             "id": "VCMBSpice",
             "aliases": ["spice", "VCMBSpice"],
-            "extensions": [".net .cir .lib"],
+            "extensions": [".net", ".cir",".lib"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
