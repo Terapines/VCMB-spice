@@ -6,19 +6,7 @@
     ],
     "patterns": [
         {
-            "include": "#subckt"
-        },
-        {
-            "include": "#model"
-        },
-        {
-            "include": "device"
-        },
-        {
-            "include": "#options"
-        },
-        {
-            "include": "#parameter"
+            "include": "#keyword"
         },
         {
             "include": "#macro"
@@ -31,26 +19,28 @@
         }
     ],
     "repository": {
-        "model": {
-            "match": "^\\s*(model)",
-            "captures": {
-                "1": {
-                    "name": "keyword.control.model"
-                }
-            }
+        "keyword": {
+            "patterns":[
+                {"include": "#ngspiceKeyword"},
+                {"include": "#adsKeyword"}
+            ]
+        },
+        "ngspiceKeyword": {
+            "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|end)",
+            "name": "keyword.control.ngspice"
+        },
+        "adsKeyword": {
+            "match": "^\\s*(?i)(model|parameters|define|end|options)",
+            "name": "keyword.control.ads"
         },
         "command": {
             "patterns": [
-                {
-                    "include": "#ngspiceCommand"
-                },
-                {
-                    "include": "#adsCommand"
-                }
+                {"include": "#ngspiceCommand"},
+                {"include": "#adsCommand"}
             ]
         },
         "ngspiceCommand": {
-            "match": "^\\s*\\.?(tran|load|to|tf|temp|step|connect|statistics|simulator|set|sens|section|save|process|probe|print|plot|parameters|param|option|global|op|noise|model|measure|meas|lib|let|ic|from|four|endsection|endif|ends|endl|endc|end|disto|control|alter|dc|ac|if|elseif|else|hdl)",
+            "match": "^\\s*\\.?(?i)(tran|load|to|tf|temp|step|connect|statistics|simulator|set|sens|section|save|process|probe|print|plot|option|global|op|noise|measure|meas|lib|let|ic|from|four|endsection|endif|endl|endc|disto|control|alter|dc|ac|hdl)",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -59,12 +49,8 @@
         },
         "comment": {
             "patterns": [
-                {
-                    "include": "#inLineComment"
-                },
-                {
-                    "include": "#singleLineComment"
-                }
+                {"include": "#inLineComment"},
+                {"include": "#singleLineComment"}
             ]
         },
         "inLineComment": {
