@@ -1,32 +1,84 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "spice",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.VCMBSpice",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.VCMBSpice",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.VCMBSpice",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.vcmb"
+    "name": "spice",
+    "fileTypes": [
+        "net",
+        "lib"
+    ],
+    "patterns": [
+        {
+            "include": "#subckt"
+        },
+        {
+            "include": "#model"
+        },
+        {
+            "include": "device"
+        },
+        {
+            "include": "#options"
+        },
+        {
+            "include": "#parameter"
+        },
+        {
+            "include": "#macro"
+        },
+        {
+            "include": "#command"
+        },
+        {
+            "include": "#comment"
+        }
+    ],
+    "repository": {
+        "model": {
+            "match": "^\\s*(model)",
+            "captures": {
+                "1": {
+                    "name": "keyword.control.model"
+                }
+            }
+        },
+        "command": {
+            "patterns": [
+                {
+                    "include": "#ngspiceCommand"
+                },
+                {
+                    "include": "#adsCommand"
+                }
+            ]
+        },
+        "ngspiceCommand": {
+            "match": "^\\s*\\.?(tran|load|to|tf|temp|step|connect|statistics|simulator|set|sens|section|save|process|probe|print|plot|parameters|param|option|global|op|noise|model|measure|meas|lib|let|ic|from|four|endsection|endif|ends|endl|endc|end|disto|control|alter|dc|ac|if|elseif|else|hdl)",
+            "captures": {
+                "0": {
+                    "name": "keyword.control.directive.include.cpp"
+                }
+            }
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "include": "#inLineComment"
+                },
+                {
+                    "include": "#singleLineComment"
+                }
+            ]
+        },
+        "inLineComment": {
+            "match": ".*?([$;].*(?=[\\r\\n]))",
+            "captures": {
+                "1": {
+                    "name": "comment.line.double-slash.js"
+                }
+            }
+        },
+        "singleLineComment": {
+            "name": "comment.line.double-slash.js",
+            "match": "\\s*[\\*;].*(?=[\\r\\n])"
+        }
+    },
+    "scopeName": "source.vcmb"
 }
