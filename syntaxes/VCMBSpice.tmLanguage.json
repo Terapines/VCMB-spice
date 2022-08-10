@@ -21,16 +21,45 @@
     "repository": {
         "keyword": {
             "patterns":[
+                {"include": "#commonKeyword"},
                 {"include": "#ngspiceKeyword"},
                 {"include": "#adsKeyword"}
             ]
         },
+        "commonKeyword":{
+            "match": "(=)",
+            "name": "keyword.operator.assignment.c"
+        },
         "ngspiceKeyword": {
-            "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|end)",
+            "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|end|func|global|include|lib|temp|width|csparam)",
             "name": "keyword.control.ngspice"
         },
         "adsKeyword": {
-            "match": "^\\s*(?i)(model|parameters|define|end|options)",
+            "patterns": [
+                {"include": "#adsKeyword1"},
+                {"include": "#nadsKeyword2"},
+                {"include": "#adsKeyword3"},
+                {"include": "#adsKeyword4"}
+            ]
+        },
+        "adsKeyword1": {
+            "match": "^\\s*(?i)(model|define|end|parameters|options)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword2": {
+            "match": "^\\s*(?i)(all_params|costindex|df_defaultint|df_value|df_zero_ohms|defaultvalue|deviceindex|linearizedElementIndex|nsample|printerrormessage|schedulecycle|warntimedomaindeembed|abs|access_all_data|access_all_data_new|access_data)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword3": {
+            "match": "^\\s*(?i)(access_data_new|acos|acosh|aele|allParams|amp_harm_coef|and|arcsinh|arctan|asin|asinh|atan|atan2|atanh|attenuator_warn|awg_dia|bin|bitseq|boltzmann|by|c0|ceil|check_indep_limits|coef_count|complex|compute_mp_poly_coef|compute_poly_coef)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword4": {
+            "match": "^\\s*(?i)(conj|cos|cos_pulse|cosh|cot|coth|cpx_gain_poly|ctof|ctok|cxform|d_atan2|damped_sin|db|dbm|dbmtoa|dbmtov|dbmtow|dbpolar|dbwtow|dcSourceLevel|deembed|deg|delay|dep_data|deriv|discrete|distcompname|doe|doeindex|doeIter|dphase|dsexpr|dstoarray)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "macro": {
+            "match": "^\\s*\\#(?i)(define|undef|endif|ifndef)",
             "name": "keyword.control.ads"
         },
         "command": {
@@ -39,8 +68,40 @@
                 {"include": "#adsCommand"}
             ]
         },
-        "ngspiceCommand": {
-            "match": "^\\s*\\.?(?i)(tran|load|to|tf|temp|step|connect|statistics|simulator|set|sens|section|save|process|probe|print|plot|option|global|op|noise|measure|meas|lib|let|ic|from|four|endsection|endif|endl|endc|disto|control|alter|dc|ac|hdl)",
+        "ngspiceCommand":{
+            "patterns": [
+                {"include": "#ngspiceCommand1"},
+                {"include": "#ngspiceCommand2"},
+                {"include": "#ngspiceCommand3"},
+                {"include": "#ngspiceCommand4"}
+            ]
+        },
+        "ngspiceCommand1": {
+            "match": "^\\s*\\.?(?i)(let|reshape|define|set|setcs|option|options|snsave|snload|alias|deftype|bltplot|plot|display|destroy|setplot|setscale|setseed|transpose|gnuplot|wrdata|wrs2p|hardcopy|asciiplot|write|compose|unlet|remzerovec|print|eprint)",
+            "captures": {
+                "0": {
+                    "name": "keyword.control.directive.include.cpp"
+                }
+            }
+        },
+        "ngspiceCommand2": {
+            "match": "^\\s*\\.?(?i)(eprvcd|edisplay|codemodel|use|load|cross|undefine|op|tf|tran|pss|ac|dc|pz|sens|disto|noise|listing|edit|mc_source|dump|fft|psd|fourier|spec|meas|show|showmod|sysinfo|alter|altermod|alterparam|resume|state|stop|trace|save)",
+            "captures": {
+                "0": {
+                    "name": "keyword.control.directive.include.cpp"
+                }
+            }
+        },
+        "ngspiceCommand3": {
+            "match": "^\\s*\\.?(?i)(iplot|status|delete|step|remcirc|reset|run|aspice|jobs|rspice|bug|where|newhelp|tutorial|help|oldhelp|removecirc|quit|source|shift|unset|unalias|history|echo|shell|rusage|cd|getcwd|version|diff|rehash|while|repeat|dowhile)",
+            "captures": {
+                "0": {
+                    "name": "keyword.control.directive.include.cpp"
+                }
+            }
+        },
+        "ngspiceCommand4": {
+            "match": "^\\s*\\.?(?i)(foreach|if|else|end|break|continue|label|goto|cdump|mdump|mrdump|settype|strcmp|linearize|cutout|devhelp|inventory|optran|wrnodev|check_ifpam|control|elseif|csparam|endc)",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -63,7 +124,7 @@
         },
         "singleLineComment": {
             "name": "comment.line.double-slash.js",
-            "match": "\\s*[\\*;].*(?=[\\r\\n])"
+            "match": "^\\s*[\\*;].*(?=[\\r\\n])"
         }
     },
     "scopeName": "source.vcmb"
