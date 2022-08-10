@@ -16,19 +16,42 @@
         },
         {
             "include": "#comment"
+        },
+        {
+            "include": "#parameter"
         }
     ],
     "repository": {
         "keyword": {
-            "patterns":[
-                {"include": "#commonKeyword"},
-                {"include": "#ngspiceKeyword"},
-                {"include": "#adsKeyword"}
+            "patterns": [
+                {
+                    "include": "#commonKeyword"
+                },
+                {
+                    "include": "#ngspiceKeyword"
+                },
+                {
+                    "include": "#adsKeyword"
+                }
             ]
         },
-        "commonKeyword":{
-            "match": "(=)",
+        "commonKeyword": {
+            "patterns": [
+                {
+                    "include": "#assign"
+                },
+                {
+                    "include": "#quote"
+                }
+            ]
+        },
+        "assign": {
+            "match": "=",
             "name": "keyword.operator.assignment.c"
+        },
+        "quote": {
+            "match": "((\\\"|'))(.+?)(\\\"|')",
+            "name": "string.quoted.single.cpp"
         },
         "ngspiceKeyword": {
             "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|end|func|global|include|lib|temp|width|csparam)",
@@ -36,10 +59,18 @@
         },
         "adsKeyword": {
             "patterns": [
-                {"include": "#adsKeyword1"},
-                {"include": "#nadsKeyword2"},
-                {"include": "#adsKeyword3"},
-                {"include": "#adsKeyword4"}
+                {
+                    "include": "#adsKeyword1"
+                },
+                {
+                    "include": "#nadsKeyword2"
+                },
+                {
+                    "include": "#adsKeyword3"
+                },
+                {
+                    "include": "#adsKeyword4"
+                }
             ]
         },
         "adsKeyword1": {
@@ -64,16 +95,28 @@
         },
         "command": {
             "patterns": [
-                {"include": "#ngspiceCommand"},
-                {"include": "#adsCommand"}
+                {
+                    "include": "#ngspiceCommand"
+                },
+                {
+                    "include": "#adsCommand"
+                }
             ]
         },
-        "ngspiceCommand":{
+        "ngspiceCommand": {
             "patterns": [
-                {"include": "#ngspiceCommand1"},
-                {"include": "#ngspiceCommand2"},
-                {"include": "#ngspiceCommand3"},
-                {"include": "#ngspiceCommand4"}
+                {
+                    "include": "#ngspiceCommand1"
+                },
+                {
+                    "include": "#ngspiceCommand2"
+                },
+                {
+                    "include": "#ngspiceCommand3"
+                },
+                {
+                    "include": "#ngspiceCommand4"
+                }
             ]
         },
         "ngspiceCommand1": {
@@ -110,8 +153,12 @@
         },
         "comment": {
             "patterns": [
-                {"include": "#inLineComment"},
-                {"include": "#singleLineComment"}
+                {
+                    "include": "#inLineComment"
+                },
+                {
+                    "include": "#singleLineComment"
+                }
             ]
         },
         "inLineComment": {
@@ -125,6 +172,17 @@
         "singleLineComment": {
             "name": "comment.line.double-slash.js",
             "match": "^\\s*[\\*;].*(?=[\\r\\n])"
+        },
+        "parameter": {
+            "match": "(\\S+)\\s*(=)(.+?)(?=\\s)",
+            "captures": {
+                "1": {
+                    "name": "string.quoted.double.cpp"
+                },
+                "2": {
+                    "name": "keyword.operator.assignment.c"
+                }
+            }
         }
     },
     "scopeName": "source.vcmb"
