@@ -19,6 +19,9 @@
         },
         {
             "include": "#parameter"
+        },
+        {
+            "include": "#device"
         }
     ],
     "repository": {
@@ -42,11 +45,18 @@
                 },
                 {
                     "include": "#quote"
+                },
+                {
+                    "include": "#condition"
                 }
             ]
         },
+        "condition":{
+            "match": "(if|else|elsif|endif|then)",
+            "name": "keyword.control.if.cpp"
+        },
         "assign": {
-            "match": "=",
+            "match": "(=|==)",
             "name": "keyword.operator.assignment.c"
         },
         "quote": {
@@ -90,7 +100,7 @@
             "name": "storage.type.primitive.cpp"
         },
         "macro": {
-            "match": "^\\s*\\#(?i)(define|undef|endif|ifndef)",
+            "match": "^\\s*\\#(?i)(define|undef|endif|ifndef|load)",
             "name": "keyword.control.ads"
         },
         "command": {
@@ -144,7 +154,7 @@
             }
         },
         "ngspiceCommand4": {
-            "match": "^\\s*\\.?(?i)(foreach|if|else|end|break|continue|label|goto|cdump|mdump|mrdump|settype|strcmp|linearize|cutout|devhelp|inventory|optran|wrnodev|check_ifpam|control|elseif|csparam|endc)",
+            "match": "^\\s*\\.?(?i)(foreach|if|end|break|continue|label|goto|cdump|mdump|mrdump|settype|strcmp|linearize|cutout|devhelp|inventory|optran|wrnodev|check_ifpam|control|csparam|endc)",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -173,16 +183,31 @@
             "name": "comment.line.double-slash.js",
             "match": "^\\s*[\\*;].*(?=[\\r\\n])"
         },
-        "parameter": {
-            "match": "(\\S+)\\s*(=)(.+?)(?=\\s)",
-            "captures": {
-                "1": {
-                    "name": "string.quoted.double.cpp"
+        "device": {
+            "patterns":[
+                {
+                    "include": "#ngspiceDevice"
                 },
-                "2": {
-                    "name": "keyword.operator.assignment.c"
+                {
+                    "include": "#adsDevice"
+                }
+            ]
+        },
+        "ngspiceDevice":{
+            "match": "^\\s*(?i)[a-z][a-z_0-9]+(?=\\s)",
+            "name":"entity.name.function.call.cpp"
+        },
+        "adsDevice":{
+            "match": "^\\s*(?i)(.+?):(\\S+)(?=\\s)",
+            "captures": {
+                "1":{
+                    "name":"keyword.control.ads"
+                },
+                "2":{
+                    "name":"entity.name.function.call.cpp"
                 }
             }
+            
         }
     },
     "scopeName": "source.vcmb"
