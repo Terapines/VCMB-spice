@@ -21,7 +21,16 @@
                 "extensions": [
                     ".net",
                     ".cir",
-                    ".lib"
+                    ".lib",
+                    ".sp",
+                    ".l",
+                    ".sub",
+                    ".scs",
+                    ".inc",
+                    ".cirx",
+                    ".mod",
+                    ".mdl",
+                    ".ckt"
                 ],
                 "configuration": "./language-configuration.json"
             }
