@@ -80,23 +80,58 @@
                 },
                 {
                     "include": "#adsKeyword4"
+                },
+                {
+                    "include": "#adsKeyword5"
+                },
+                {
+                    "include": "#adsKeyword6"
+                },
+                {
+                    "include": "#adsKeyword7"
+                },
+                {
+                    "include": "#adsKeyword8"
+                },
+                {
+                    "include": "#adsKeyword9"
                 }
             ]
         },
         "adsKeyword1": {
-            "match": "^\\s*(?i)(model|define|end|parameters|options)",
+            "match": "\\s+(?i)(model|define|end|parameters|options)",
             "name": "storage.type.primitive.cpp"
         },
         "adsKeyword2": {
-            "match": "^\\s*(?i)(all_params|costindex|df_defaultint|df_value|df_zero_ohms|defaultvalue|deviceindex|linearizedElementIndex|nsample|printerrormessage|schedulecycle|warntimedomaindeembed|abs|access_all_data|access_all_data_new|access_data)",
+            "match": "\\s+(?i)(all_params|costindex|df_defaultint|df_value|df_zero_ohms|defaultvalue|deviceindex|linearizedElementIndex|nsample|printerrormessage|schedulecycle|warntimedomaindeembed|abs|access_all_data|access_all_data_new|access_data)",
             "name": "storage.type.primitive.cpp"
         },
         "adsKeyword3": {
-            "match": "^\\s*(?i)(access_data_new|acos|acosh|aele|allParams|amp_harm_coef|and|arcsinh|arctan|asin|asinh|atan|atan2|atanh|attenuator_warn|awg_dia|bin|bitseq|boltzmann|by|c0|ceil|check_indep_limits|coef_count|complex|compute_mp_poly_coef|compute_poly_coef)",
+            "match": "\\s+(?i)(access_data_new|acos|acosh|aele|allParams|amp_harm_coef|and|arcsinh|arctan|asin|asinh|atan|atan2|atanh|attenuator_warn|awg_dia|bin|bitseq|boltzmann|by|c0|ceil|check_indep_limits|coef_count|complex|compute_mp_poly_coef|compute_poly_coef)",
             "name": "storage.type.primitive.cpp"
         },
         "adsKeyword4": {
-            "match": "^\\s*(?i)(conj|cos|cos_pulse|cosh|cot|coth|cpx_gain_poly|ctof|ctok|cxform|d_atan2|damped_sin|db|dbm|dbmtoa|dbmtov|dbmtow|dbpolar|dbwtow|dcSourceLevel|deembed|deg|delay|dep_data|deriv|discrete|distcompname|doe|doeindex|doeIter|dphase|dsexpr|dstoarray)",
+            "match": "^\\s+(?i)(conj|cos|cos_pulse|cosh|cot|coth|cpx_gain_poly|ctof|ctok|cxform|d_atan2|damped_sin|db|dbm|dbmtoa|dbmtov|dbmtow|dbpolar|dbwtow|dcSourceLevel|deembed|deg|delay|dep_data|deriv|discrete|distcompname|doe|doeindex|doeIter|dphase|dsexpr|dstoarray)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword5": {
+            "match": "\\s+(?i)(embedded_prolemy_exec|ensure_ext|equals|erf_pulse|eval_miso_poly|eval_poly|exp|exp_pulse|fetch_envband|file|floor|fmod|fread|freq|freq_mult_coef|freq_mult_poly|ftoc|ftok|gauss|gaussian|gcdata_to_poly|generate_gmsk_iq_spectra|generate_gmsk_pulse_spectra",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword6": {
+            "match": "\\s+(?i)(generate_piqpsk_spectra|generate_pulse_train_spectra|generate_qam16_spectra|generate_qpsk_pulse_spectra|get_array_size|get_attribute|get_block|get_fund_freq|get_indep_limits|get_LSfreqs|get_LSpowrs|get_max_points|get_S2D_attribute|global|globalnode|ground)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword7": {
+            "match": "\\s+(?i)(hpvar_to_vs|hugereal|hypot|icor|ilsb|imag|impulse|imt_hpvar_to_array|imt_hbdata_to_array|include_SSpower|inline|index|innerprod|inoise|int|internal_generate_gmsk_iq_spectra|internal_generate_gmsk_pulse_spectra|internal_generate_piqpsk_spectra|internal_generate_pulse_train_spectra)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword8": {
+            "match": "\\s+(?i)(internal_generate_qam16_spectra|internal_generate_qpsk_pulse_spectra|internal_get_fund_freq|internal_window|interp|interp1|interp2|interp3|interp4|iss|issue_message_set_value|itob|iusb|length|lfsr|limit_warn|log10|logNodesetScale|lognormal|logRforce|logRshunt|log_amp|log_amp_cas|lookup)",
+            "name": "storage.type.primitive.cpp"
+        },
+        "adsKeyword9": {
+            "match": "\\s+?i)(mag|makearray|mapping|max|mcTrial|mcindex|min|miximt_coef|miximt_poly|mp_fetchS21|mp_poly_gain|multi_freq|multivar_access|multivar_tree|names|nested|nf|nfmin|no|nodoe|noise|noisefreq|noopt|norm|nostat|not|notequals|notune|omega|opt|optIter|or|phase|phase_noise_pwl|phasedeg|phaserad|pinCurrent)",
             "name": "storage.type.primitive.cpp"
         },
         "macro": {
