@@ -52,7 +52,7 @@
             ]
         },
         "condition": {
-            "match": "(if|else|elsif|endif|then)",
+            "match": "(if|else|elseif|endif|then)(\\s+|\\()",
             "name": "keyword.control.if.cpp"
         },
         "assign": {
@@ -107,7 +107,7 @@
             }
         },
         "adsKeyword2": {
-            "match": "\\s+(?i)(all_params|costindex|df_defaultint|df_value|df_zero_ohms|defaultvalue|deviceindex|linearizedElementIndex|nsample|printerrormessage|schedulecycle|warntimedomaindeembed|abs|access_all_data|access_all_data_new|access_data)(\\s+|=|\\()",
+            "match": "\\s+(?i)(all_params|costindex|df_defaultint|df_value|df_zero_ohms|defaultvalue|deviceindex|linearizedElementIndex|nsample|printerrormessage|schedulecycle|warntimedomaindeembed|abs|access_all_data|access_all_data_new|access_data)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -115,7 +115,7 @@
             }
         },
         "adsKeyword3": {
-            "match": "\\s+(?i)(access_data_new|acos|acosh|aele|allParams|amp_harm_coef|and|arcsinh|arctan|asin|asinh|atan|atan2|atanh|attenuator_warn|awg_dia|bin|bitseq|boltzmann|by|c0|ceil|check_indep_limits|coef_count|complex|compute_mp_poly_coef|compute_poly_coef)(\\s+|=|\\()",
+            "match": "\\s+(?i)(access_data_new|acos|acosh|aele|allParams|amp_harm_coef|and|arcsinh|arctan|asin|asinh|atan|atan2|atanh|attenuator_warn|awg_dia|bin|bitseq|boltzmann|by|c0|ceil|check_indep_limits|coef_count|complex|compute_mp_poly_coef|compute_poly_coef)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -123,7 +123,7 @@
             }
         },
         "adsKeyword4": {
-            "match": "^\\s+(?i)(conj|cos|cos_pulse|cosh|cot|coth|cpx_gain_poly|ctof|ctok|cxform|d_atan2|damped_sin|db|dbm|dbmtoa|dbmtov|dbmtow|dbpolar|dbwtow|dcSourceLevel|deembed|deg|delay|dep_data|deriv|discrete|distcompname|doe|doeindex|doeIter|dphase|dsexpr|dstoarray)(\\s+|=|\\()",
+            "match": "^\\s+(?i)(conj|cos|cos_pulse|cosh|cot|coth|cpx_gain_poly|ctof|ctok|cxform|d_atan2|damped_sin|db|dbm|dbmtoa|dbmtov|dbmtow|dbpolar|dbwtow|dcSourceLevel|deembed|deg|delay|dep_data|deriv|discrete|distcompname|doe|doeindex|doeIter|dphase|dsexpr|dstoarray)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -131,7 +131,7 @@
             }
         },
         "adsKeyword5": {
-            "match": "\\s+(?i)(embedded_prolemy_exec|ensure_ext|equals|erf_pulse|eval_miso_poly|eval_poly|exp|exp_pulse|fetch_envband|file|floor|fmod|fread|freq|freq_mult_coef|freq_mult_poly|ftoc|ftok|gauss|gaussian|gcdata_to_poly|generate_gmsk_iq_spectra|generate_gmsk_pulse_spectra)(\\s+|=|\\()",
+            "match": "\\s+(?i)(embedded_prolemy_exec|ensure_ext|equals|erf_pulse|eval_miso_poly|eval_poly|exp|exp_pulse|fetch_envband|file|floor|fmod|fread|freq|freq_mult_coef|freq_mult_poly|ftoc|ftok|gauss|gaussian|gcdata_to_poly|generate_gmsk_iq_spectra|generate_gmsk_pulse_spectra)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -139,7 +139,7 @@
             }
         },
         "adsKeyword6": {
-            "match": "\\s+(?i)(generate_piqpsk_spectra|generate_pulse_train_spectra|generate_qam16_spectra|generate_qpsk_pulse_spectra|get_array_size|get_attribute|get_block|get_fund_freq|get_indep_limits|get_LSfreqs|get_LSpowrs|get_max_points|get_S2D_attribute|global|globalnode|ground)(\\s+|=|\\()",
+            "match": "\\s+(?i)(generate_piqpsk_spectra|generate_pulse_train_spectra|generate_qam16_spectra|generate_qpsk_pulse_spectra|get_array_size|get_attribute|get_block|get_fund_freq|get_indep_limits|get_LSfreqs|get_LSpowrs|get_max_points|get_S2D_attribute|global|globalnode|ground)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -147,7 +147,7 @@
             }
         },
         "adsKeyword7": {
-            "match": "\\s+(?i)(hpvar_to_vs|hugereal|hypot|icor|ilsb|imag|impulse|imt_hpvar_to_array|imt_hbdata_to_array|include_SSpower|inline|index|innerprod|inoise|int|internal_generate_gmsk_iq_spectra|internal_generate_gmsk_pulse_spectra|internal_generate_piqpsk_spectra|internal_generate_pulse_train_spectra)(\\s+|=|\\()",
+            "match": "\\s+(?i)(hpvar_to_vs|hugereal|hypot|icor|ilsb|imag|impulse|imt_hpvar_to_array|imt_hbdata_to_array|include_SSpower|inline|index|innerprod|inoise|int|internal_generate_gmsk_iq_spectra|internal_generate_gmsk_pulse_spectra|internal_generate_piqpsk_spectra|internal_generate_pulse_train_spectra)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -155,7 +155,7 @@
             }
         },
         "adsKeyword8": {
-            "match": "\\s+(?i)(internal_generate_qam16_spectra|internal_generate_qpsk_pulse_spectra|internal_get_fund_freq|internal_window|interp|interp1|interp2|interp3|interp4|iss|issue_message_set_value|itob|iusb|length|lfsr|limit_warn|log10|logNodesetScale|lognormal|logRforce|logRshunt|log_amp|log_amp_cas|lookup)(\\s+|=|\\()",
+            "match": "\\s+(?i)(internal_generate_qam16_spectra|internal_generate_qpsk_pulse_spectra|internal_get_fund_freq|internal_window|interp|interp1|interp2|interp3|interp4|iss|issue_message_set_value|itob|iusb|length|lfsr|limit_warn|log10|logNodesetScale|lognormal|logRforce|logRshunt|log_amp|log_amp_cas|lookup)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -163,7 +163,7 @@
             }
         },
         "adsKeyword9": {
-            "match": "\\s+(?i)(mag|makearray|mapping|max|mcTrial|mcindex|min|miximt_coef|miximt_poly|mp_fetchS21|mp_poly_gain|multi_freq|multivar_access|multivar_tree|names|nested|nf|nfmin|no|nodoe|noise|noisefreq|noopt|norm|nostat|not|notequals|notune|omega|opt|optIter|or|phase|phase_noise_pwl|phasedeg|phaserad|pinCurrent)(\\s+|=|\\()",
+            "match": "\\s+(?i)(mag|makearray|mapping|max|mcTrial|mcindex|min|miximt_coef|miximt_poly|mp_fetchS21|mp_poly_gain|multi_freq|multivar_access|multivar_tree|names|nested|nf|nfmin|no|nodoe|noise|noisefreq|noopt|norm|nostat|not|notequals|notune|omega|opt|optIter|or|phase|phase_noise_pwl|phasedeg|phaserad|pinCurrent)(\\s+|=|\\(|\\-)",
             "captures": {
                 "1": {
                     "name": "storage.type.primitive.cpp"
@@ -171,7 +171,7 @@
             }
         },
         "macro": {
-            "match": "^\\s*\\#(?i)(define|undef|endif|ifndef|load|uselib)",
+            "match": "^\\s*\\#(?i)(define|undef|endif|ifndef|load|uselib(\\s+|\\r|\\n))",
             "name": "keyword.control.ads"
         },
         "command": {
@@ -201,7 +201,7 @@
             ]
         },
         "ngspiceCommand1": {
-            "match": "^\\s*\\.?(?i)(let|reshape|define|settype|set|setcs|option|options|snsave|snload|alias|deftype|bltplot|plot|display|destroy|setplot|setscale|setseed|transpose|gnuplot|wrdata|wrs2p|hardcopy|asciiplot|write|compose|unlet|remzerovec|print|eprint)",
+            "match": "^\\s*\\.?(?i)(let|reshape|define|settype|set|setcs|option|options|snsave|snload|alias|deftype|bltplot|plot|display|destroy|setplot|setscale|setseed|transpose|gnuplot|wrdata|wrs2p|hardcopy|asciiplot|write|compose|unlet|remzerovec|print|eprint)\\s+",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -209,7 +209,7 @@
             }
         },
         "ngspiceCommand2": {
-            "match": "^\\s*\\.?(?i)(eprvcd|edisplay|codemodel|use|load|cross|undefine|op|tf|tran|pss|ac|dc|pz|sens|disto|noise|listing|edit|mc_source|dump|fft|psd|fourier|spec|meas|show|showmod|sysinfo|alter|altermod|alterparam|resume|state|stop|trace|save)",
+            "match": "^\\s*\\.?(?i)(eprvcd|edisplay|codemodel|use|load|cross|undefine|op|tf|tran|pss|ac|dc|pz|sens|disto|noise|listing|edit|mc_source|dump|fft|psd|fourier|spec|meas|show|showmod|sysinfo|alter|altermod|alterparam|resume|state|stop|trace|save)\\s+",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -217,7 +217,7 @@
             }
         },
         "ngspiceCommand3": {
-            "match": "^\\s*\\.?(?i)(iplot|status|delete|step|remcirc|reset|run|aspice|jobs|rspice|bug|where|newhelp|tutorial|help|oldhelp|removecirc|quit|source|shift|unset|unalias|history|echo|shell|rusage|cd|getcwd|version|diff|rehash|while|repeat|dowhile)",
+            "match": "^\\s*\\.?(?i)(iplot|status|delete|step|remcirc|reset|run|aspice|jobs|rspice|bug|where|newhelp|tutorial|help|oldhelp|removecirc|quit|source|shift|unset|unalias|history|echo|shell|rusage|cd|getcwd|version|diff|rehash|while|repeat|dowhile)\\s+",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
@@ -225,7 +225,7 @@
             }
         },
         "ngspiceCommand4": {
-            "match": "^\\s*\\.?(?i)(foreach|if|end|break|continue|label|goto|cdump|mdump|mrdump|strcmp|linearize|cutout|devhelp|inventory|optran|wrnodev|check_ifpam|control|csparam|sp)",
+            "match": "^\\s*\\.?(?i)(foreach|if|end|break|continue|label|goto|cdump|mdump|mrdump|strcmp|linearize|cutout|devhelp|inventory|optran|wrnodev|check_ifpam|control|csparam|sp)\\s+",
             "captures": {
                 "0": {
                     "name": "keyword.control.directive.include.cpp"
