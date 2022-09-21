@@ -52,7 +52,7 @@
             ]
         },
         "condition": {
-            "match": "(if|else|elseif|endif|then)(\\s+|\\()",
+            "match": "(if|else|elseif|endif|then|@vcmb)(\\s+|\\()",
             "name": "keyword.control.if.cpp"
         },
         "assign": {
@@ -64,7 +64,7 @@
             "name": "string.quoted.single.cpp"
         },
         "ngspiceKeyword": {
-            "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|endc|end|func|global|include|lib|temp|width|csparam)",
+            "match": "^\\s*\\.(?i)(model|title|param|subckt|ends|endc|end|func|global|include|lib|temp|width|csparam|probe)",
             "name": "keyword.control.ngspice"
         },
         "adsKeyword": {
@@ -241,18 +241,18 @@
                     "include": "#singleLineComment"
                 }
             ]
+        },        
+        "singleLineComment": {
+            "name": "comment.line.double-slash.js",
+            "match": "^\\s*[\\*;].*(?=[\\r\\n])"
         },
         "inLineComment": {
-            "match": ".*?([$;].*(?=[\\r\\n]))",
+            "match": ".+?([$;].*(?=[\\r\\n]))",
             "captures": {
                 "1": {
                     "name": "comment.line.double-slash.js"
                 }
             }
-        },
-        "singleLineComment": {
-            "name": "comment.line.double-slash.js",
-            "match": "^\\s*[\\*;].*(?=[\\r\\n])"
         },
         "device": {
             "patterns": [
@@ -265,7 +265,7 @@
             ]
         },
         "ngspiceDevice": {
-            "match": "^\\s*(?i)[a-z][a-z_0-9]+(?=\\s+[a-z0-9_\\+\\.]+)",
+            "match": "^\\s*(?i)[a-z][a-z_0-9]+(?=\\s+[a-z0-9_\\+\\.\\;]+)",
             "name": "entity.name.function.call.cpp"
         },
         "adsDevice": {
