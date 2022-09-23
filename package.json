@@ -11,7 +11,7 @@
         "Programming Languages"
     ],
     "license": "MIT",
-    "repository":"https://github.com/Terapines/VCMB-spice",
+    "repository": "https://github.com/Terapines/VCMB-spice",
     "contributes": {
         "languages": [
             {
@@ -42,6 +42,12 @@
                 "language": "VCMBSpice",
                 "scopeName": "source.vcmb",
                 "path": "./syntaxes/VCMBSpice.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "VCMBSpice",
+                "path": "snippets/snippets.json"
             }
         ]
     }
